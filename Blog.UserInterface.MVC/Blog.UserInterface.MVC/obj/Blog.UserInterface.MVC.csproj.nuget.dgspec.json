@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ferid\\Desktop\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC.csproj": {}
+    "C:\\Users\\Ferid\\Documents\\GitHub\\GitHub\\ASP.NET-Core_Blog\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ferid\\Desktop\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC.csproj": {
+    "C:\\Users\\Ferid\\Documents\\GitHub\\GitHub\\ASP.NET-Core_Blog\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ferid\\Desktop\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC.csproj",
+        "projectUniqueName": "C:\\Users\\Ferid\\Documents\\GitHub\\GitHub\\ASP.NET-Core_Blog\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC.csproj",
         "projectName": "Blog.UserInterface.MVC",
-        "projectPath": "C:\\Users\\Ferid\\Desktop\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC.csproj",
+        "projectPath": "C:\\Users\\Ferid\\Documents\\GitHub\\GitHub\\ASP.NET-Core_Blog\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC.csproj",
         "packagesPath": "C:\\Users\\Ferid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ferid\\Desktop\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC\\obj\\",
+        "outputPath": "C:\\Users\\Ferid\\Documents\\GitHub\\GitHub\\ASP.NET-Core_Blog\\Blog.UserInterface.MVC\\Blog.UserInterface.MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
