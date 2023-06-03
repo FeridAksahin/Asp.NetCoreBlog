@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N5dh1A3mMa3q6/f0Sm2DYaUMPJ0kSVrSRAS9+jY+tTZVXZdxiFtAQtbPRaFVmz1FvmnVK2AxEYEjQiHORjfb3A==",
+  "dgSpecHash": "f+uqxx6R62i/LxIuwEo+VuNk/iAEfJEVde6foLXaVUzKUZXh4UnCaBzKFtjZTBA3MRgesIuc2/+fkcjH7Qfw8Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ferid\\Desktop\\Blog.API\\Blog.API\\Blog.API.csproj",
+  "projectFilePath": "C:\\Users\\Ferid\\Documents\\GitHub\\GitHub\\ASP.NET-Core_Blog\\Blog.API\\Blog.API\\Blog.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ferid\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Ferid\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
