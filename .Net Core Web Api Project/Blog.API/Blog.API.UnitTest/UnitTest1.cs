@@ -5,6 +5,7 @@ namespace Blog.API.UnitTest
         [SetUp]
         public void Setup()
         {
+            // Method intentionally left empty.
         }
 
         [Test]
