@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.API.DataTransferObject\Blog.API.DataTransferObject.csproj" />
+    <ProjectReference Include="..\Blog.API.Entity\Blog.API.Entity.csproj" />
+  </ItemGroup>
+
 </Project>
