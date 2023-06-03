@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Blog.API.DataAccessLayer\Blog.API.DataAccessLayer.csproj" />
     <ProjectReference Include="..\Blog.API.Entity\Blog.API.Entity.csproj" />
   </ItemGroup>
 
