@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.AdminPanel.Web", "Blog.AdminPanel.Web\Blog.AdminPanel.Web.csproj", "{5D029B9E-92CD-4FC7-99A8-641A7EA9779E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.AdminPanel.Web", "Blog.AdminPanel.Web\Blog.AdminPanel.Web.csproj", "{5D029B9E-92CD-4FC7-99A8-641A7EA9779E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.AdminPanel.ViewModel", "Blog.AdminPanel.ViewModel\Blog.AdminPanel.ViewModel.csproj", "{9ED22A27-AC48-413F-A18A-43DD0928F018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.AdminPanel.Validation", "Blog.AdminPanel.Validation\Blog.AdminPanel.Validation.csproj", "{FA28FED3-E774-400C-A0A4-2F6FAA7D925E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.AdminPanel.ApiService", "Blog.AdminPanel.ApiService\Blog.AdminPanel.ApiService.csproj", "{C72DF3FE-F197-47F4-BD57-BD78F97720DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{5D029B9E-92CD-4FC7-99A8-641A7EA9779E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D029B9E-92CD-4FC7-99A8-641A7EA9779E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D029B9E-92CD-4FC7-99A8-641A7EA9779E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ED22A27-AC48-413F-A18A-43DD0928F018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED22A27-AC48-413F-A18A-43DD0928F018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED22A27-AC48-413F-A18A-43DD0928F018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED22A27-AC48-413F-A18A-43DD0928F018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA28FED3-E774-400C-A0A4-2F6FAA7D925E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA28FED3-E774-400C-A0A4-2F6FAA7D925E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA28FED3-E774-400C-A0A4-2F6FAA7D925E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA28FED3-E774-400C-A0A4-2F6FAA7D925E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C72DF3FE-F197-47F4-BD57-BD78F97720DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C72DF3FE-F197-47F4-BD57-BD78F97720DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C72DF3FE-F197-47F4-BD57-BD78F97720DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C72DF3FE-F197-47F4-BD57-BD78F97720DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
