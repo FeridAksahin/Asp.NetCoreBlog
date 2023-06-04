@@ -23,9 +23,9 @@ namespace Blog.API.DataAccessLayer.Context
             return result != null;
         }
 
-        public bool Register(UserDTO user)
+        public async Task<bool> Register(UserDTO user)
         {
-            using (var transaction = _context.Database.BeginTransaction())
+            using (var transaction =_context.Database.BeginTransaction())
             {
                 try
                 {
@@ -35,7 +35,7 @@ namespace Blog.API.DataAccessLayer.Context
                         Password = user.Password,
                         Username = user.Username
                     });
-                    _context.SaveChanges();
+                    await _context.SaveChangesAsync();
                     transaction.Commit();
                     return true;
                 }

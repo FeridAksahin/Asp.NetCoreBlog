@@ -16,9 +16,9 @@ namespace Blog.API.Controllers
         }
 
         [HttpPost, ActionName("AddAdminUser")]
-        public bool AddAdminUser(UserDTO userDto)
+        public async Task<bool> AddAdminUser(UserDTO userDto)
         {
-            return _userDal.Register(userDto);
+            return await _userDal.Register(userDto);
         }
 
         [HttpGet]

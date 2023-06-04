@@ -10,6 +10,6 @@ namespace Blog.API.DataAccessLayer.Interface
     public interface IUserDal
     {
         public bool Login(UserDTO user);
-        public bool Register(UserDTO user);
+        public Task<bool> Register(UserDTO user);
     }
 }
