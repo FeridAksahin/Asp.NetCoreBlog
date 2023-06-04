@@ -15,8 +15,9 @@ namespace Blog.AdminPanel.Web.Controllers
         public async Task<IActionResult> Index()
         {
             //test for api method communication
-            Task<bool> task = _userService.AddNewAdmin(new ViewModel.UserViewModel { Email = "g", Password = "garg", Username = "gtsh" });
-            var result = await task;
+            //Task<bool> task = _userService.AddNewAdmin(new ViewModel.UserViewModel { Email = "g", Password = "garg", Username = "gtsh" });
+            // var result = await task;
+            TempData["Login"] = true;
             return View();
         }
     }
