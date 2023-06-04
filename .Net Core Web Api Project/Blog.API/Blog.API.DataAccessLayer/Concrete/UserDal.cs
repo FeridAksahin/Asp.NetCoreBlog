@@ -3,7 +3,7 @@ using Blog.API.DataTransferObject;
 using Blog.API.Entity.Context;
 using Blog.API.Entity.Entity;
 
-namespace Blog.API.DataAccessLayer.Context
+namespace Blog.API.DataAccessLayer.Concrete
 {
     public class UserDal : IUserDal
     {
@@ -25,7 +25,7 @@ namespace Blog.API.DataAccessLayer.Context
 
         public async Task<bool> Register(UserDTO user)
         {
-            using (var transaction =_context.Database.BeginTransaction())
+            using (var transaction = _context.Database.BeginTransaction())
             {
                 try
                 {

@@ -1,5 +1,7 @@
+using Blog.API.DataAccessLayer.Interface;
 using Blog.API.Entity.Context;
 using Microsoft.EntityFrameworkCore;
+using Blog.API.DataAccessLayer.Concrete;
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
@@ -15,6 +17,7 @@ builder.Services.AddSwaggerGen();
 string connectionString = configuration.GetConnectionString("ConnectionStringForBlog");
 builder.Services.AddDbContext<BlogContext>(x => x.UseSqlServer(connectionString));
 builder.Services.AddScoped<BlogContext>();
+builder.Services.AddScoped<IUserDal, UserDal>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

@@ -16,9 +16,17 @@ namespace Blog.API.Controllers
         }
 
         [HttpPost, ActionName("AddAdminUser")]
-        public async Task<bool> AddAdminUser(UserDTO userDto)
+        public async Task<StatusCodeResult> AddAdminUser(UserDTO userDto)
         {
-            return await _userDal.Register(userDto);
+            var isRegistered = await _userDal.Register(userDto);
+            if (isRegistered)
+            {
+                return StatusCode(StatusCodes.Status201Created);
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
         [HttpGet]
