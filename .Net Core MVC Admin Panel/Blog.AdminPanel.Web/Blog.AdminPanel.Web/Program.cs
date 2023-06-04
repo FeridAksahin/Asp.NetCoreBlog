@@ -1,8 +1,17 @@
+using Blog.AdminPanel.ApiService.Base.Concrete;
+using Blog.AdminPanel.ApiService.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddHttpClient<BaseApiService>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["ApiAddress"]);
+});
+
+builder.Services.AddScoped<UserService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +31,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=User}/{action=Index}/{id?}");
 
 app.Run();

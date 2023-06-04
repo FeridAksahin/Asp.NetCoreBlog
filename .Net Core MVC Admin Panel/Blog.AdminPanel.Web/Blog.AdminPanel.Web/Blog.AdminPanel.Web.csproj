@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.AdminPanel.ApiService\Blog.AdminPanel.ApiService.csproj" />
+  </ItemGroup>
+
 </Project>
