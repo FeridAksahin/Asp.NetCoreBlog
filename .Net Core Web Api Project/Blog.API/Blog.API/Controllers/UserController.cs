@@ -29,10 +29,10 @@ namespace Blog.API.Controllers
             }
         }
 
-        [HttpGet]
-        public bool Login(UserDTO userDto)
+        [HttpGet("{email}/{password}")]
+        public bool Login(string email, string password)
         {
-            return _userDal.Login(userDto);
+            return _userDal.Login(new UserDTO { Email = email, Password = password });
         }
     }
 }

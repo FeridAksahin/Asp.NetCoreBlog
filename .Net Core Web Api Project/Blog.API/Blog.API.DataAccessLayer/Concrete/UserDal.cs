@@ -15,12 +15,12 @@ namespace Blog.API.DataAccessLayer.Concrete
 
         public bool Login(UserDTO user)
         {
-            var result = from u in _context.User
+            var result = (from u in _context.User
                          where u.Email.Equals(user.Email)
                          && u.Password.Equals(user.Password)
-                         select u;
+                         select u).Any();
 
-            return result != null;
+            return result;
         }
 
         public async Task<bool> Register(UserDTO user)
@@ -29,6 +29,16 @@ namespace Blog.API.DataAccessLayer.Concrete
             {
                 try
                 {
+                    var result = (from u in _context.User
+                                 where u.Email.Equals(user.Email)
+                                 || u.Username.Equals(user.Username)
+                                 select u).Any();
+
+                    if (result)
+                    {
+                        return false;
+                    }
+
                     _context.User.Add(new User
                     {
                         Email = user.Email,
