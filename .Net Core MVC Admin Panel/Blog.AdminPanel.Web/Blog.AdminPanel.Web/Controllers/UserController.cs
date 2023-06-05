@@ -1,4 +1,5 @@
 ﻿using Blog.AdminPanel.ApiService.Service;
+using Blog.AdminPanel.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.AdminPanel.Web.Controllers
@@ -12,12 +13,34 @@ namespace Blog.AdminPanel.Web.Controllers
             _userService = userService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
-            //test for api method communication
-            //Task<bool> task = _userService.AddNewAdmin(new ViewModel.UserViewModel { Email = "g", Password = "garg", Username = "gtsh" });
-            // var result = await task;
             TempData["Login"] = true;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(UserViewModel userViewModel)
+        {
+
+            TempData["Login"] = true;
+            if (ModelState.IsValid)
+            {
+                if(userViewModel.Action.Equals("Register", StringComparison.OrdinalIgnoreCase) && await _userService.AddNewAdmin(userViewModel))
+                {
+                    return RedirectToAction("Index", "AdminHome");
+                }
+                else if(userViewModel.Action.Equals("Login", StringComparison.OrdinalIgnoreCase) && await _userService.AdminLogin(userViewModel))
+                {
+                    return RedirectToAction("Index", "AdminHome");
+                }
+                else
+                {
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ErrorPage", "404.html");
+                    return PhysicalFile(filePath, "text/html");
+                }
+            }
             return View();
         }
     }

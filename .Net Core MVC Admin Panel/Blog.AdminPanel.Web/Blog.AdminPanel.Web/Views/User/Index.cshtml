@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Blog.AdminPanel.ViewModel
+@model UserViewModel
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,17 +21,22 @@
                                     <div class="center-wrap">
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3">Log In</h4>
-                                            <div class="form-group">
-                                                <input type="email" class="form-style" placeholder="Email">
-                                                <i class="input-icon uil uil-at"></i>
-                                            </div>
-                                            <div class="form-group mt-2">
-                                                <input type="password" class="form-style" placeholder="Password">
-                                                <i class="input-icon uil uil-lock-alt"></i>
-                                            </div>
-                                            <a href="#" class="btn mt-4">submit</a>
-                                            @*                            				<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
-                                            *@
+                                            <form asp-action="Index" asp-controller="User" method="post">
+                                                <input type="hidden" asp-for="Action" value="Login" />
+                                                <div class="form-group">
+                                                    <input type="email" class="form-style" placeholder="Email" asp-for="Email">
+                                                    <i class="input-icon uil uil-at"></i>
+                                                </div>
+                                                <span asp-validation-for="Email" class="alert-danger"></span>
+                                                <div class="form-group mt-2">
+                                                    <input type="password" class="form-style" placeholder="Password" asp-for="Password">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                </div>
+                                                <span asp-validation-for="Password" class="alert-danger"></span>
+                                                <button type="submit" class="btn mt-4">submit</button>
+                                                @*                            				<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
+                                                *@
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -37,19 +44,25 @@
                                     <div class="center-wrap">
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3">Sign Up</h4>
-                                            <div class="form-group">
-                                                <input type="text" class="form-style" placeholder="Username" autocomplete="off">
-                                                <i class="input-icon uil uil-user"></i>
-                                            </div>
-                                            <div class="form-group mt-2">
-                                                <input type="email" class="form-style" placeholder="Email" autocomplete="off">
-                                                <i class="input-icon uil uil-at"></i>
-                                            </div>
-                                            <div class="form-group mt-2">
-                                                <input type="password" class="form-style" placeholder="Password" autocomplete="off">
-                                                <i class="input-icon uil uil-lock-alt"></i>
-                                            </div>
-                                            <a href="#" class="btn mt-4">submit</a>
+                                            <form asp-action="Index" asp-controller="User" method="post">
+                                                <input type="hidden" asp-for="Action" value="Register" />
+                                                <div class="form-group">
+                                                    <input type="text" class="form-style" placeholder="Username" asp-for="Username">
+                                                    <i class="input-icon uil uil-user"></i>
+                                                </div>
+                                                <span asp-validation-for="Username" class="alert-danger"></span>
+                                                <div class="form-group mt-2">
+                                                    <input type="email" class="form-style" placeholder="Email" asp-for="Email">
+                                                    <i class="input-icon uil uil-at"></i>
+                                                </div>
+                                                <span asp-validation-for="Email" class="alert-danger"></span>
+                                                <div class="form-group mt-2">
+                                                    <input type="password" class="form-style" placeholder="Password" asp-for="Password">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                </div>
+                                                <span asp-validation-for="Password" class="alert-danger"></span>
+                                                <button class="btn mt-4">submit</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
