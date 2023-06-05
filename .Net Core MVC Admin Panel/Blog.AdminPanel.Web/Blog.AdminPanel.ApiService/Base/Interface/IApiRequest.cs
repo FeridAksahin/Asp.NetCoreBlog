@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Blog.AdminPanel.ApiService.Base.Interface
 {
-    public interface IBaseApiService
+    public interface IApiRequest
     {
         Task<bool> PostAsync<T>(T data, string endpoint) where T : class;
+        Task<bool> GetAsync(string userEmail, string userPassword, string endpoint);
+
     }
 }

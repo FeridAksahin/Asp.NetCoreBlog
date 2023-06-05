@@ -6,6 +6,7 @@ namespace Blog.AdminPanel.Web.Controllers
     {
         public IActionResult Index()
         {
+            TempData["Login"] = null;
             return View();
         }
     }

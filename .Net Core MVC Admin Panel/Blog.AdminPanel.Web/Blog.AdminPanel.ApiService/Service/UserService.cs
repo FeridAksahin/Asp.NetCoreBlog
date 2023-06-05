@@ -10,15 +10,21 @@ namespace Blog.AdminPanel.ApiService.Service
 {
     public class UserService
     {
-        private readonly BaseApiService _baseApiService;
+        private readonly ApiRequest _apiRequest;
 
-        public UserService(BaseApiService baseApiService)
+        public UserService(ApiRequest apiRequest)
         {
-            _baseApiService = baseApiService;
+            _apiRequest = apiRequest;
         }
+
         public async Task<bool> AddNewAdmin(UserViewModel newAdmin)
         {
-            return await _baseApiService.PostAsync<UserViewModel>(newAdmin, "User/AddAdminUser");
+            return await _apiRequest.PostAsync<UserViewModel>(newAdmin, "User/AddAdminUser");
+        }
+
+        public async Task<bool> AdminLogin(UserViewModel user)
+        {
+            return await _apiRequest.GetAsync(user.Email,user.Password, "User/Login");
         }
     }
 }

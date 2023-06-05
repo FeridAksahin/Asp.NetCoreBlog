@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddHttpClient<BaseApiService>(client =>
+builder.Services.AddHttpClient<ApiRequest>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ApiAddress"]);
 });

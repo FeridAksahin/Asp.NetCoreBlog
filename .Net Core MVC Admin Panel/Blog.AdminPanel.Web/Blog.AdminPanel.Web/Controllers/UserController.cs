@@ -14,7 +14,7 @@ namespace Blog.AdminPanel.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             TempData["Login"] = true;
             return View();
