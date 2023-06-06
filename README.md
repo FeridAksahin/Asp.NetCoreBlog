@@ -36,11 +36,14 @@ This project structure aims to separate responsibilities and provide a modular a
 - [ ] Repository Design Pattern (ASAP Incoming)
 
 <h3>Admin Panel (.Net Core Mvc)</h3>
+
 - [x] C#
 - [x] Inversion of Control (IoC)
 - [x] Layered Architecture
 - [x] Javascript & Html & Css & Bootstrap
+
 <h3>BlogMaster (End User - .Net Core Web Api)</h3>
+
 - [x] C#
 - [x] Inversion of Control (IoC)
 - [x] Layered Architecture
