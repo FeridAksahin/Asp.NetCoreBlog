@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Blog.API.Entity.Entity
 {
     [Table("Article")]
-    public class Article
+    public class Article : BaseEntity
     {
         [Key]
         public int Id { get; set; }
@@ -22,7 +22,7 @@ namespace Blog.API.Entity.Entity
         public virtual User User { get; set; }
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
-        public virtual List<Picture> Picture { get; set; }
+        public virtual IEnumerable<Picture> Picture { get; set; }
 
     }
 }
