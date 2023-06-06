@@ -41,12 +41,14 @@ This project structure aims to separate responsibilities and provide a modular a
 - [x] Inversion of Control (IoC)
 - [x] Layered Architecture
 - [x] Javascript & Html & Css & Bootstrap
+- [x] Fluent Validation 
 
 <h3>BlogMaster (End User - .Net Core Mvc)</h3>
 
 - [x] C#
 - [x] Inversion of Control (IoC)
 - [x] Layered Architecture
-- [x] Javascript & Html & Css & Bootstrap<br>
+- [x] Javascript & Html & Css & Bootstrap
+- [x] Fluent Validation 
 
 
