@@ -42,7 +42,7 @@ This project structure aims to separate responsibilities and provide a modular a
 - [x] Layered Architecture
 - [x] Javascript & Html & Css & Bootstrap
 
-<h3>BlogMaster (End User - .Net Core Web Api)</h3>
+<h3>BlogMaster (End User - .Net Core Mvc)</h3>
 
 - [x] C#
 - [x] Inversion of Control (IoC)
