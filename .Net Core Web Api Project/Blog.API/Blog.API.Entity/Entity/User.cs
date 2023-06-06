@@ -17,6 +17,10 @@ namespace Blog.API.Entity.Entity
         public string Email { get; set; }
         [StringLength(30)]
         public string Password { get; set; }
-        public virtual List<Article> Article { get; set; }
+        public DateTime CreationDate { get; set; }
+        public int ModifiedBy { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public virtual IEnumerable<Article> Article { get; set; }
     }
 }

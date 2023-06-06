@@ -14,10 +14,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 string connectionString = configuration.GetConnectionString("ConnectionStringForBlog");
 builder.Services.AddDbContext<BlogContext>(x => x.UseSqlServer(connectionString));
 builder.Services.AddScoped<BlogContext>();
 builder.Services.AddScoped<IUserDal, UserDal>();
+builder.Services.AddScoped<IArticleDal, ArticleDal>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

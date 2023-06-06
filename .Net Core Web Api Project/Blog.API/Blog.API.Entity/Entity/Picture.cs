@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Blog.API.Entity.Entity
 {
     [Table("Picture")]
-    public class Picture
+    public class Picture : BaseEntity
     {
         [Key]
         public int Id { get; set; }
