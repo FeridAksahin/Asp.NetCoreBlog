@@ -23,6 +23,7 @@ This project structure aims to separate responsibilities and provide a modular a
 <hr>
 <h2>Used</h2>
 <h3>Blog.Api (.Net Core Web Api)</h3>
+
 - [x] C#
 - [x] Mssql
 - [x] Entity Framework (Codefirst approach) 
@@ -33,6 +34,7 @@ This project structure aims to separate responsibilities and provide a modular a
 - [x] Javascript & Html & Css & Bootstrap
 - [ ] Jwt Token (ASAP Incoming)
 - [ ] Repository Design Pattern (ASAP Incoming)
+
 <h3>Admin Panel (.Net Core Mvc)</h3>
 - [x] C#
 - [x] Inversion of Control (IoC)
