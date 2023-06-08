@@ -12,6 +12,7 @@ builder.Services.AddHttpClient<ApiRequest>(client =>
     client.BaseAddress = new Uri(builder.Configuration["ApiAddress"]);
 });
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<ArticleService>();
 builder.Services.AddControllersWithViews()
     .AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<UserValidator>());
 var app = builder.Build();

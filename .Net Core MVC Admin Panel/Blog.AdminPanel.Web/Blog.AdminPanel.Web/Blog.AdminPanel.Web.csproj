@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Blog.AdminPanel.ApiService\Blog.AdminPanel.ApiService.csproj" />
+    <ProjectReference Include="..\Blog.AdminPanel.Common\Blog.AdminPanel.Common.csproj" />
     <ProjectReference Include="..\Blog.AdminPanel.Validation\Blog.AdminPanel.Validation.csproj" />
   </ItemGroup>
 
