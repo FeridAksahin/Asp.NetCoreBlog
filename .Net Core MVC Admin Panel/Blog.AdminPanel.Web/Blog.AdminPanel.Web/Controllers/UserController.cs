@@ -1,9 +1,14 @@
 ﻿using Blog.AdminPanel.ApiService.Service;
 using Blog.AdminPanel.ViewModel;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Blog.AdminPanel.Web.Controllers
 {
+    [AllowAnonymous]
     public class UserController : Controller
     {
         private readonly UserService _userService;
@@ -33,6 +38,15 @@ namespace Blog.AdminPanel.Web.Controllers
                 }
                 else if(userViewModel.Action.Equals("Login", StringComparison.OrdinalIgnoreCase) && await _userService.AdminLogin(userViewModel))
                 {
+                    var claim = new List<Claim>  
+
+                    {
+                        new Claim(ClaimTypes.Email, userViewModel.Email)
+                    };
+                    var claimIdentity = new ClaimsIdentity(claim, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var authProperties = new AuthenticationProperties();
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimIdentity), authProperties);
                     return RedirectToAction("Index", "AdminHome");
                 }
                 else
