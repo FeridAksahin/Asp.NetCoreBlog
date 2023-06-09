@@ -43,7 +43,7 @@ This project structure aims to separate responsibilities and provide a modular a
 - [x] Javascript & Html & Css & Bootstrap
 - [x] Fluent Validation 
 - [x] CKEditor 
-- [ ] Cookie-based Authentication and Authorization (ASAP Incoming)
+- [x] Cookie-based Authentication and Authorization 
 
 <h3>BlogMaster (End User - .Net Core Mvc)</h3>
 
