@@ -16,11 +16,11 @@ namespace Blog.API.DataAccessLayer.Concrete
         public bool Login(UserDTO user)
         {
             return (from u in _context.User
-                         where u.Email.Equals(user.Email)
-                         && u.Password.Equals(user.Password)
-                         select u).Any();
+                    where u.Email.Equals(user.Email)
+                    && u.Password.Equals(user.Password)
+                    select u).Any();
 
-              
+
         }
 
         public async Task<bool> Register(UserDTO user)
@@ -30,9 +30,9 @@ namespace Blog.API.DataAccessLayer.Concrete
                 try
                 {
                     var result = (from u in _context.User
-                                 where u.Email.Equals(user.Email)
-                                 || u.Username.Equals(user.Username)
-                                 select u).Any();
+                                  where u.Email.Equals(user.Email)
+                                  || u.Username.Equals(user.Username)
+                                  select u).Any();
 
                     if (result)
                     {
@@ -56,6 +56,11 @@ namespace Blog.API.DataAccessLayer.Concrete
                     throw; // should write log...
                 }
             }
+        }
+
+        public async Task<int> GetUserId(string userMail)
+        {
+            return _context.User.FirstOrDefault(x => x.Email.Equals(userMail)).Id;
         }
     }
 }

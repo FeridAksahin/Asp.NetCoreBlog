@@ -9,9 +9,9 @@ namespace Blog.AdminPanel.Common
     public enum Category
     {
         Technology = 1,
-        General = 2,
-        Game = 3,
-        Travel = 4,
-        Finance = 5
+        General = 3,
+        Game = 4,
+        Travel = 5,
+        Finance = 6
     }
 }

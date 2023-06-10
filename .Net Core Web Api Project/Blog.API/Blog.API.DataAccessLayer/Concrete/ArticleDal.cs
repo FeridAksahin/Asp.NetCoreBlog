@@ -8,35 +8,32 @@ namespace Blog.API.DataAccessLayer.Concrete
     public class ArticleDal : IArticleDal
     {
         private readonly BlogContext _context;
-        public ArticleDal(BlogContext context)
+        private readonly IUserDal _userDal;
+        public ArticleDal(BlogContext context, IUserDal userDal)
         {
             _context = context;
+            _userDal = userDal;
         }
 
         public async Task<bool> AddArticle(ArticleDTO article)
         {
-            using (var transaction = _context.Database.BeginTransaction())
-            {
                 try
                 {
                     _context.Article.Add(new Article
                     {
                         Text = article.Text,
-                        UserId = article.UserId,
+                        UserId = await _userDal.GetUserId(article.UserMail),
                         CategoryId = article.CategoryId,
                         Header = article.Header,
                         SubHeader = article.SubHeader
                     });
                     await _context.SaveChangesAsync();
-                    transaction.Commit();
                     return true;
                 }
                 catch (Exception)
                 {
-                    transaction.Rollback();
                     throw;
                 }
-            }
         }
     }
 }

@@ -11,5 +11,6 @@ namespace Blog.API.DataAccessLayer.Interface
     {
         public bool Login(UserDTO user);
         public Task<bool> Register(UserDTO user);
+        public Task<int> GetUserId(string userMail);
     }
 }

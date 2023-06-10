@@ -11,7 +11,7 @@ namespace Blog.AdminPanel.ViewModel
         public string Header { get; set; }
         public string? SubHeader { get; set; }
         public string Text { get; set; }
-        public int UserId { get; set; }
+        public string? UserMail { get; set; }
         public int CategoryId { get; set; }
     }
 }

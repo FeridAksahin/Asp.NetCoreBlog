@@ -1,6 +1,7 @@
 ﻿using Blog.AdminPanel.ApiService.Service;
 using Blog.AdminPanel.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Blog.AdminPanel.Web.Controllers
 {
@@ -22,6 +23,8 @@ namespace Blog.AdminPanel.Web.Controllers
         [HttpPost]
         public async Task<JsonResult> AddArticle(ArticleViewModel article)
         {
+            article.UserMail = User.FindFirstValue(ClaimTypes.Email);
+
             if (ModelState.IsValid)
             {
                 var result = await _articleService.AddNewArticle(article) ? "Added article." : "Request failed. Please try again.";
