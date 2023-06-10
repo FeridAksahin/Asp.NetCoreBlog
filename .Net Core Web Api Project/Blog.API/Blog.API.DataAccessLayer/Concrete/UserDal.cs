@@ -25,8 +25,6 @@ namespace Blog.API.DataAccessLayer.Concrete
 
         public async Task<bool> Register(UserDTO user)
         {
-            using (var transaction = _context.Database.BeginTransaction())
-            {
                 try
                 {
                     var result = (from u in _context.User
@@ -46,16 +44,13 @@ namespace Blog.API.DataAccessLayer.Concrete
                         Username = user.Username
                     });
                     await _context.SaveChangesAsync();
-                    transaction.Commit();
                     return true;
                 }
                 catch (Exception)
                 {
-                    transaction.Rollback();
                     return false;
                     throw; // should write log...
                 }
-            }
         }
 
         public async Task<int> GetUserId(string userMail)
