@@ -21,5 +21,17 @@ namespace Blog.API.Controllers
             return await _articleDal.AddArticle(article) ? StatusCode(StatusCodes.Status201Created)
                 : StatusCode(StatusCodes.Status503ServiceUnavailable);
         }
+
+        [HttpGet]
+        public async Task<List<HomePageArticleDTO>> GetArticleInformationForHomePage()
+        {
+            return await _articleDal.GetArticleForHomePage();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ArticlePostDTO> GetArticlePost(int id)
+        {
+            return await _articleDal.GetArticlePost(id);
+        }
     }
 }
