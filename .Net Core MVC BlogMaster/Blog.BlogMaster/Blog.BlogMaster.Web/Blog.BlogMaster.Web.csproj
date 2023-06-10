@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blog.BlogMaster.ApiService\Blog.BlogMaster.ApiService.csproj" />
+    <ProjectReference Include="..\Blog.BlogMaster.ViewModel\Blog.BlogMaster.ViewModel.csproj" />
+  </ItemGroup>
+
+</Project>
