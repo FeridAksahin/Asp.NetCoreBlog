@@ -51,7 +51,3 @@ This project structure aims to separate responsibilities and provide a modular a
 - [x] Inversion of Control (IoC)
 - [x] Layered Architecture
 - [x] Javascript & Html & Css & Bootstrap
-- [x] Fluent Validation
-- [ ] Cookie-based Authentication and Authorization (ASAP Incoming)  
-
-
