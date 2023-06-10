@@ -68,7 +68,7 @@ h6 span {
     padding: 0;
     margin: 10px auto;
     cursor: pointer;
-    background-color: #ffeba7;
+    background-color: white;
 }
 
     .checkbox:checked + label:before,
@@ -280,7 +280,7 @@ h6 span {
     -ms-flex-pack: center;
     text-align: center;
     border: none;
-    background-color: #ffeba7;
+    background-color: white;
     color: #102770;
     box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
 }
@@ -294,7 +294,7 @@ h6 span {
 
     .btn:hover {
         background-color: #102770;
-        color: #ffeba7;
+        color: white;
         box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
     }
 

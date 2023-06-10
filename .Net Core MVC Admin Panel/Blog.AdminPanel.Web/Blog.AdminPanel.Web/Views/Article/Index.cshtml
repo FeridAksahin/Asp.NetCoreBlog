@@ -18,66 +18,72 @@
         }
 
         .ck-editor__editable {
-            min-height: 200px;  
-            max-height: 400px;  
-            overflow-y: auto;  
-            white-space: pre-wrap;  
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
         }
     </style>
-<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
-<div class="container">
-    <div class="inner-container">
-        <h1>Write Article</h1>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Header</span>
+    <div class="container">
+        <div class="inner-container">
+            <h1>Write Article</h1>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Header</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Username" id="header" aria-describedby="basic-addon1">
             </div>
-            <input type="text" class="form-control" placeholder="Mandatory" aria-label="Username" id="header" aria-describedby="basic-addon1">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Sub Header</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Username" id="subHeader" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+                <textarea class="form-control" id="articleText" placeholder="Article"></textarea>
+            </div>
+
+            <select class="btn btn-info dropdown-toggle" id="category">
+                @foreach (string category in Enum.GetNames(typeof(Category)))
+                {
+                    <option selected disabled hidden>Category</option>
+                    <option value="@((int)Enum.Parse(typeof(Category), category.ToString()))">@category.ToString()</option>
+                }
+            </select>
+
+            <button type="submit" class="btn btn-info" onclick="SendArticle()">Add</button>
         </div>
-
-        <div class="input-group">
-            <textarea class="form-control" id="articleText" placeholder="Article"></textarea>
-        </div>
-
-        <select class="btn btn-info dropdown-toggle" id="category">
-            @foreach (string category in Enum.GetNames(typeof(Category)))
-            {
-                <option selected disabled hidden>Category</option>
-                <option value="@((int)Enum.Parse(typeof(Category), category.ToString()))">@category.ToString()</option>
-            }
-        </select>
-
-        <button type="submit" class="btn btn-info" onclick="SendArticle()">Add</button>
     </div>
-</div>
 
 </body>
 </html>
 <script>
-   var ckeditor; 
+    var ckeditor;
     $(function () {
-        ckeditor = CKEDITOR.replace("articleText"); 
+        ckeditor = CKEDITOR.replace("articleText");
     });
 
     function SendArticle() {
         var header = document.getElementById("header").value;
+        var subHeader = document.getElementById("subHeader").value;
         var articleText = ckeditor.getData();
         var category = document.getElementById("category").value;
 
-        var data = { Header: header, Text: articleText, CategoryId: category };
+        var data = { Header: header, Text: articleText, CategoryId: category, SubHeader: subHeader };
         $.ajax({
             url: "/Article/AddArticle",
             data: { article: data },
             method: 'POST',
             success: function (data) {
-                         debugger;
+                debugger;
                 if (data.error != null) {
-           
-                      console.log(data.error)
+
+                    console.log(data.error)
                 }
             }
         });

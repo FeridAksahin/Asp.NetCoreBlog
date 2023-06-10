@@ -21,7 +21,9 @@ namespace Blog.AdminPanel.Validation
                 .MinimumLength(30)
                 .WithMessage("The article minumum length 30 character.");
 
-            RuleFor(r => r.Header).NotEmpty().WithMessage("Header must not be empty.");
+            RuleFor(r => r.Header).NotEmpty().WithMessage("Header must not be empty.")
+                .MaximumLength(60)
+                .WithMessage("The article header minumum length 60 character."); ;
         }
     }
 }
