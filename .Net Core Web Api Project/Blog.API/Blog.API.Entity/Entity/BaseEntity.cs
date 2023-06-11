@@ -8,7 +8,7 @@ namespace Blog.API.Entity.Entity
 {
     public class BaseEntity
     {
-        public DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; set; } = DateTime.Now;
         public int CreatedBy { get; set; }
         public int ModifiedBy { get; set; }
         public bool IsActive { get; set; }
