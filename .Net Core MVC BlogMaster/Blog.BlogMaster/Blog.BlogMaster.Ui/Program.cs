@@ -1,5 +1,5 @@
 using Blog.BlogMaster.ApiService.Base.Concrete;
-using Blog.BlogMaster.ApiService.Service.Abstract;
+using Blog.BlogMaster.ApiService.Service.Interface;
 using Blog.BlogMaster.ApiService.Service.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +13,7 @@ builder.Services.AddHttpClient<ApiRequest>(client =>
 });
 
 builder.Services.AddScoped<IArticleService, ArticleService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 var app = builder.Build();
@@ -31,6 +32,12 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "about",
+    pattern: "Blog/About/{username}",
+    defaults: new { controller = "Blog", action = "About" }
+);
 
 app.MapControllerRoute(
     name: "default",
