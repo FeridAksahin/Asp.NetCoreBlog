@@ -57,7 +57,5 @@ namespace Blog.AdminPanel.Web.Controllers
             }
             return View();
         }
-
-
     }
 }

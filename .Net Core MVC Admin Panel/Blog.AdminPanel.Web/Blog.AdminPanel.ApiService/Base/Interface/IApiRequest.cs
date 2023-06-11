@@ -8,8 +8,9 @@ namespace Blog.AdminPanel.ApiService.Base.Interface
 {
     public interface IApiRequest
     {
-        Task<bool> PostAsync<T>(T data, string endpoint) where T : class;
-        Task<bool> GetAsync(string userEmail, string userPassword, string endpoint);
-
+        public Task<bool> PostAsync<T>(T data, string endpoint) where T : class;
+        public Task<bool> GetAsync(string userEmail, string userPassword, string endpoint);
+        public Task<string> PostAsyncResponseJson<T>(T data, string endpoint) where T : class;
+        public Task<string> PutAsync<T>(T data, string endpoint) where T : class;
     }
 }

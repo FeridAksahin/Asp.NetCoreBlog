@@ -1,0 +1,105 @@
+﻿@using Blog.AdminPanel.ViewModel
+@model AboutViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .inner-container {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        #articleText {
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background-color: #393E46;
+            color: #fff;
+        }
+    </style>
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="inner-container">
+            <h2>About You</h2>
+            <div class="input-group">
+                @if (Model != null && Model.AboutText != null)
+                {
+                    <textarea class="form-control" id="aboutText" placeholder="About You">@Model.AboutText</textarea>
+                }
+                else
+                {
+                    <textarea class="form-control" id="aboutText" placeholder="About You"></textarea>
+                }
+            </div>
+            @if (Model != null)
+            {
+                <button type="submit" class="btn btn-submit" id="aboutButton" onclick="SendAboutText()">Update</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-submit" id="aboutButton" onclick="SendAboutText()">Add</button>
+            }
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    var ckeditor;
+    $(function() {
+        ckeditor = CKEDITOR.replace("aboutText");
+    });
+
+    function SendAboutText() {
+        var aboutText = ckeditor.getData();
+        debugger;
+        var type = document.getElementById("aboutButton").innerText;
+
+        $.ajax({
+            url: "/AdminHome/About",
+            data: { AboutText: aboutText, Type: type },
+            method: 'POST',
+            success: function(data) {
+                var responseData = JSON.parse(data);
+                Swal.fire({
+                    title: responseData.title,
+                    text: responseData.message,
+                    icon: responseData.status,
+                    confirmButtonColor: '#393E46',
+                    confirmButtonText: 'Okay'
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                     window.location.reload()
+                    }
+                });
+            }
+        });
+    }
+</script>
