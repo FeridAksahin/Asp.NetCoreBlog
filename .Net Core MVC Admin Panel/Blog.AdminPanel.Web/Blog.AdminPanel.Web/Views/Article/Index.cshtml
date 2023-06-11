@@ -64,7 +64,7 @@
 </html>
 <script>
     var ckeditor;
-    $(function () {
+    $(function() {
         ckeditor = CKEDITOR.replace("articleText");
     });
 
@@ -79,10 +79,14 @@
             url: "/Article/AddArticle",
             data: { article: data },
             method: 'POST',
-            success: function (data) {
-                if (data.error != null) {
-                    console.log(data.error)
-                }
+            success: function(data) {
+                Swal.fire({
+                    title: 'Add Article',
+                    text: data.data,
+                    icon: data.icon,
+                    confirmButtonColor: '#393E46',
+                    confirmButtonText: 'Okay'
+                })
             }
         });
     }

@@ -28,12 +28,13 @@ namespace Blog.AdminPanel.Web.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _articleService.AddNewArticle(article) ? "Added article." : "Request failed. Please try again.";
-                return Json(new { data = result });
+                var icon = result.Equals("Request failed. Please try again.") ? "error" : "success";
+                return Json(new { data = result, icon = icon });
             }
             else
             {
                 var error = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage));
-                return Json(new { error = error });
+                return Json(new { data = error, icon = "error" });
             }
         }
     }
