@@ -26,5 +26,20 @@ namespace Blog.AdminPanel.ApiService.Service
         {
             return await _apiRequest.GetAsync(user.Email,user.Password, "User/Login");
         }
+
+        public async Task<string> AddAbout(AboutViewModel aboutModel)
+        {
+            return await _apiRequest.PostAsyncResponseJson(aboutModel, "User/AddAboutForAdmin");
+        }
+
+        public async Task<string> UpdateAbout(AboutViewModel aboutModel)
+        {
+            return await _apiRequest.PutAsync(aboutModel, "User/UpdateAboutForAdmin");
+        }
+
+        public async Task<AboutViewModel> GetAbout(string userMail)
+        {
+            return await _apiRequest.GetAsync<AboutViewModel>(userMail, "User/GetAbout");
+        }
     }
 }

@@ -32,5 +32,31 @@ namespace Blog.AdminPanel.ApiService.Base.Concrete
             var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             return Convert.ToBoolean(responseContent);
         }
+
+        public async Task<string> PostAsyncResponseJson<T>(T data, string endpoint) where T : class
+        {
+            var json = JsonConvert.SerializeObject(data);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _client.PostAsync(endpoint, content);
+            return await response.Content.ReadAsStringAsync();
+        }
+
+        public async Task<T> GetAsync<T>(string userMail, string endpoint) where T : class
+        {
+            var response = await _client.GetAsync($"{endpoint}/{userMail}");
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
+            }
+            return null;
+        }
+
+        public async Task<string> PutAsync<T>(T data, string endpoint) where T : class
+        {
+            var json = JsonConvert.SerializeObject(data);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _client.PutAsync(endpoint, content);
+            return await response.Content.ReadAsStringAsync();
+        }
     }
 }
