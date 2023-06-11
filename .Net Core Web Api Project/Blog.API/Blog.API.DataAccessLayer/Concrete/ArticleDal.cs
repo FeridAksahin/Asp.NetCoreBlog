@@ -27,7 +27,6 @@ namespace Blog.API.DataAccessLayer.Concrete
                     CategoryId = article.CategoryId,
                     Header = article.Header,
                     SubHeader = article.SubHeader,
-                    CreationDate = DateTime.Now,
                     CreatedBy = userId,
                     IsActive = true
                 });

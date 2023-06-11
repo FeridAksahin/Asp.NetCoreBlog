@@ -12,5 +12,8 @@ namespace Blog.API.DataAccessLayer.Interface
         public bool Login(UserDTO user);
         public Task<bool> Register(UserDTO user);
         public Task<int> GetUserId(string userMail);
+        public Task<bool> UpdateAdminUserAbout(AboutDTO about);
+        public Task<bool> AddAdminAbout(AboutDTO about);
+        public Task<AboutDTO> GetAbout(string adminMail);
     }
 }
