@@ -103,7 +103,8 @@ namespace Blog.API.DataAccessLayer.Concrete
         public async Task<AboutDTO> GetAbout(string adminMail)
         {
             return await (from admin in _context.AdminUserAbout
-                    where admin.User.Email.Equals(adminMail)
+                    where admin.User.Email.Equals(adminMail) 
+                    || admin.User.Username.Equals(adminMail)
                     select new AboutDTO
                     {
                         AboutText = admin.AboutText

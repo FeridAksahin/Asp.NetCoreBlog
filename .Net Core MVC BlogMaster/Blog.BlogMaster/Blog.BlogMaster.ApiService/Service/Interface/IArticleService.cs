@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blog.BlogMaster.ApiService.Service.Abstract
+namespace Blog.BlogMaster.ApiService.Service.Interface
 {
     public interface IArticleService
     {

@@ -48,5 +48,15 @@ namespace Blog.BlogMaster.ApiService.Base.Concrete
             }
             return null;
         }
+
+        public async Task<T> GetAsync<T>(string userMail, string endpoint) where T : class
+        {
+            var response = await _client.GetAsync($"{endpoint}/{userMail}");
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
+            }
+            return null;
+        }
     }
 }

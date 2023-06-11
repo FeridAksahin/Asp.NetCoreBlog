@@ -1,5 +1,5 @@
 ﻿using Blog.BlogMaster.ApiService.Base.Concrete;
-using Blog.BlogMaster.ApiService.Service.Abstract;
+using Blog.BlogMaster.ApiService.Service.Interface;
 using Blog.BlogMaster.ViewModel;
 using System;
 using System.Collections.Generic;

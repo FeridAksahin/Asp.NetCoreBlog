@@ -1,4 +1,4 @@
-﻿using Blog.BlogMaster.ApiService.Service.Abstract;
+﻿using Blog.BlogMaster.ApiService.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.BlogMaster.Ui.Controllers
@@ -6,10 +6,12 @@ namespace Blog.BlogMaster.Ui.Controllers
     public class BlogController : Controller
     {
         private readonly IArticleService _articleService;
+        private readonly IUserService _userService;
 
-        public BlogController(IArticleService articleService)
+        public BlogController(IArticleService articleService, IUserService userService)
         {
             _articleService = articleService;
+            _userService = userService; 
         }
         public async Task<IActionResult> Index()
         {
@@ -23,9 +25,19 @@ namespace Blog.BlogMaster.Ui.Controllers
         {
             return View();
         }
-        public IActionResult AboutMe()
+        public async Task<IActionResult> About(string username)
         {
-            return View();
+            if(username != null)
+            {
+                var adminAbout = await _userService.GetAdminAbout(username);
+                adminAbout.Username = username;
+                return View(adminAbout);
+            }
+            else
+            {
+                return View();
+            }
+   
         }
     }
 }
