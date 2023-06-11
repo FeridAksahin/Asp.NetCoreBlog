@@ -43,7 +43,7 @@ namespace Blog.AdminPanel.Web.Controllers
             }
             else
             {
-                responseMessage = "Model is not valid.";
+                responseMessage = "{ \"status\":\"error\",\"message\":\"About text must not be empty.\",\"title\":\"Update\"}";
             }
 
             return Json(responseMessage);
