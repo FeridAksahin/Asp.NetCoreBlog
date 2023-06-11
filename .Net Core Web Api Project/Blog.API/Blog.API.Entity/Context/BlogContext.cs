@@ -12,5 +12,6 @@ namespace Blog.API.Entity.Context
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Picture> Picture { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<AdminUserAbout> AdminUserAbout { get; set; }
     }
 }

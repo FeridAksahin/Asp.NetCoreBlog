@@ -22,5 +22,6 @@ namespace Blog.API.Entity.Entity
         public bool IsActive { get; set; }
         public DateTime ModifiedDate { get; set; }
         public virtual IEnumerable<Article> Article { get; set; }
+        public virtual AdminUserAbout AdminUserAbout { get; set; }
     }
 }
