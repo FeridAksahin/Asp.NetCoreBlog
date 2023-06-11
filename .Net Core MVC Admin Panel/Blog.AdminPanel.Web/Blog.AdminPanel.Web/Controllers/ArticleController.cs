@@ -1,10 +1,12 @@
 ﻿using Blog.AdminPanel.ApiService.Service;
 using Blog.AdminPanel.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace Blog.AdminPanel.Web.Controllers
 {
+    [Authorize]
     public class ArticleController : Controller
     {
         private readonly ArticleService _articleService;
