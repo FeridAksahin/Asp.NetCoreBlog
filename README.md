@@ -32,6 +32,7 @@ This project structure aims to separate responsibilities and provide a modular a
 - [x] Inversion of Control (IoC)
 - [x] Layered Architecture
 - [x] Javascript & Html & Css & Bootstrap
+- [x] Json Objects
 - [ ] Jwt Token (ASAP Incoming)
 - [ ] Repository Design Pattern (ASAP Incoming)
 
@@ -44,6 +45,8 @@ This project structure aims to separate responsibilities and provide a modular a
 - [x] Fluent Validation 
 - [x] CKEditor 
 - [x] Cookie-based Authentication
+- [x] SweetAlert2 
+- [x] Json Objects
 
 <h3>BlogMaster (End User - .Net Core Mvc)</h3>
 
