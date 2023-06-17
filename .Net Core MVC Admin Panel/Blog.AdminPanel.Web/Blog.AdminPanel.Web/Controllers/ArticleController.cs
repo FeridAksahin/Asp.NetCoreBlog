@@ -39,5 +39,12 @@ namespace Blog.AdminPanel.Web.Controllers
                 return Json(new { data = error, icon = "error" });
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAddedArticle()
+        {
+            var article =await _articleService.GetAllArticle(User.FindFirstValue(ClaimTypes.Email));
+            return View(article);
+        }
     }
 }

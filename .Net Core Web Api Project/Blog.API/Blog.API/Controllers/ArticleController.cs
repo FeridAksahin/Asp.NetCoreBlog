@@ -33,5 +33,11 @@ namespace Blog.API.Controllers
         {
             return await _articleDal.GetArticlePost(id);
         }
+
+        [HttpGet("{email}")]
+        public async Task<List<ArticleDTO>> AllAddedArticle(string email)
+        {
+            return await _articleDal.GetAllAdminArticle(email);
+        }
     }
 }

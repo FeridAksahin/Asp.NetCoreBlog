@@ -7,6 +7,113 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net6.0\Blog.API.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net6.0\Blog.API.GlobalUsings.g.cs" />
+    <Compile Include="obj\Debug\net6.0\Blog.API.MvcApplicationPartsAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net6.0\appsettings.Development.json" />
+    <Content Include="bin\Debug\net6.0\appsettings.json" />
+    <Content Include="bin\Debug\net6.0\Blog.API.deps.json" />
+    <Content Include="bin\Debug\net6.0\Blog.API.runtimeconfig.json" />
+    <Content Include="obj\Blog.API.csproj.nuget.dgspec.json" />
+    <Content Include="obj\Debug\net6.0\Blog.API.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\net6.0\staticwebassets.build.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net6.0\Azure.Core.dll" />
+    <None Include="bin\Debug\net6.0\Azure.Identity.dll" />
+    <None Include="bin\Debug\net6.0\Blog.API.DataAccessLayer.dll" />
+    <None Include="bin\Debug\net6.0\Blog.API.DataAccessLayer.pdb" />
+    <None Include="bin\Debug\net6.0\Blog.API.DataTransferObject.dll" />
+    <None Include="bin\Debug\net6.0\Blog.API.DataTransferObject.pdb" />
+    <None Include="bin\Debug\net6.0\Blog.API.dll" />
+    <None Include="bin\Debug\net6.0\Blog.API.Entity.dll" />
+    <None Include="bin\Debug\net6.0\Blog.API.Entity.pdb" />
+    <None Include="bin\Debug\net6.0\Blog.API.exe" />
+    <None Include="bin\Debug\net6.0\Blog.API.pdb" />
+    <None Include="bin\Debug\net6.0\Humanizer.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.Logging.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.Options.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Identity.Client.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.OpenApi.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.SqlServer.Server.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll" />
+    <None Include="bin\Debug\net6.0\Mono.TextTemplating.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll" />
+    <None Include="bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll" />
+    <None Include="bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll" />
+    <None Include="bin\Debug\net6.0\System.CodeDom.dll" />
+    <None Include="bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll" />
+    <None Include="bin\Debug\net6.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll" />
+    <None Include="bin\Debug\net6.0\System.Memory.Data.dll" />
+    <None Include="bin\Debug\net6.0\System.Runtime.Caching.dll" />
+    <None Include="bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Debug\net6.0\System.Security.Permissions.dll" />
+    <None Include="bin\Debug\net6.0\System.Text.Encodings.Web.dll" />
+    <None Include="bin\Debug\net6.0\System.Text.Json.dll" />
+    <None Include="bin\Debug\net6.0\System.Windows.Extensions.dll" />
+    <None Include="obj\Blog.API.csproj.nuget.g.props" />
+    <None Include="obj\Blog.API.csproj.nuget.g.targets" />
+    <None Include="obj\Debug\net6.0\apphost.exe" />
+    <None Include="obj\Debug\net6.0\Blog.API.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net6.0\Blog.API.assets.cache" />
+    <None Include="obj\Debug\net6.0\Blog.API.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net6.0\Blog.API.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net6.0\Blog.API.csproj.CopyComplete" />
+    <None Include="obj\Debug\net6.0\Blog.API.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net6.0\Blog.API.dll" />
+    <None Include="obj\Debug\net6.0\Blog.API.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net6.0\Blog.API.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net6.0\Blog.API.MvcApplicationPartsAssemblyInfo.cache" />
+    <None Include="obj\Debug\net6.0\Blog.API.pdb" />
+    <None Include="obj\Debug\net6.0\refint\Blog.API.dll" />
+    <None Include="obj\Debug\net6.0\ref\Blog.API.dll" />
+    <None Include="obj\project.nuget.cache" />
+    <None Include="obj\staticwebassets.pack.sentinel" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -17,6 +124,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Blog.API.DataAccessLayer\Blog.API.DataAccessLayer.csproj" />
     <ProjectReference Include="..\Blog.API.Entity\Blog.API.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="obj\Debug\net6.0\staticwebassets\" />
   </ItemGroup>
 
 </Project>

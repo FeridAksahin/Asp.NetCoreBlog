@@ -22,7 +22,7 @@ builder.Services.AddControllersWithViews()
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
     options.Cookie.Name = "Admin.Panel.Authentication";
-    options.LoginPath = "/User/Login";
+    options.LoginPath = "/User/Index";
     options.AccessDeniedPath = "/Error/NotFound";   
     options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
 });

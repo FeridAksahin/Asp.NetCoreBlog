@@ -17,5 +17,10 @@ namespace Blog.AdminPanel.ApiService.Service
             return await _apiRequest.PostAsync<ArticleViewModel>(article, "Article/AddArticle");
         }
 
+        public async Task<List<ArticleViewModel>> GetAllArticle(string userMail)
+        {
+            return await _apiRequest.GetAsyncList<ArticleViewModel>(userMail, "Article/AllAddedArticle");
+        }
+
     }
 }

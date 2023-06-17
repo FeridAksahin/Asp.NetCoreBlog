@@ -88,5 +88,18 @@ namespace Blog.API.DataAccessLayer.Concrete
                 throw;
             }
         }
+
+        public async Task<List<ArticleDTO>> GetAllAdminArticle(string email)
+        {
+            return (from article in _context.Article
+                    where article.User.Email.Equals(email) select new ArticleDTO
+                    {
+                        CategoryId = article.CategoryId,
+                        Header = article.Header,
+                        SubHeader = article.SubHeader,
+                        Text = article.Text,
+                        UserMail = article.User.Email
+                    }).ToList();
+        }
     }
 }

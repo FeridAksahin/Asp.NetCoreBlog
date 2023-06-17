@@ -1,0 +1,91 @@
+﻿@using Blog.AdminPanel.ViewModel
+@model List<ArticleViewModel>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <table class="table" id="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Article Text</th>
+                        <th scope="col">Header</th>
+                        <th scope="col">Sub Header</th>
+                        <th scope="col">Category Id</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="text-align: center;">
+                                <button type="button" id="openModal" class="btn" data-toggle="modal" data-target="#popUp"@* data-text="@item.Text"*@>
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </td>
+                            <td>@item.Header</td>
+                            <td>@item.SubHeader</td>
+                            <td>@item.CategoryId</td>
+                            <td class="update_delete">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-warning" style="background-color: #393E46; color: white;">Update</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="popUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...fsdfsdfsdfs
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+
+        //$('.openModal').click(function() {
+        //    var articleText = $(this).data('text');
+        //    $('#popUp .modal-body').text(articleText);
+        //    $('#popUp').modal('show');
+        //});
+    });
+</script>
