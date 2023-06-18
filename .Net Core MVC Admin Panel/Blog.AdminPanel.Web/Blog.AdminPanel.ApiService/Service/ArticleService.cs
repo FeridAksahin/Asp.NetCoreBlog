@@ -22,5 +22,10 @@ namespace Blog.AdminPanel.ApiService.Service
             return await _apiRequest.GetAsyncList<ArticleViewModel>(userMail, "Article/AllAddedArticle");
         }
 
+        public async Task<bool> DeleteArticle(int id)
+        {
+            return await _apiRequest.DeleteAsync($"Article/DeleteArticleById/{id}");
+        }
+
     }
 }

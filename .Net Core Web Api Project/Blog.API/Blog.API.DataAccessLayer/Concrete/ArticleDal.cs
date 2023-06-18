@@ -98,8 +98,25 @@ namespace Blog.API.DataAccessLayer.Concrete
                         Header = article.Header,
                         SubHeader = article.SubHeader,
                         Text = article.Text,
-                        UserMail = article.User.Email
+                        UserMail = article.User.Email,
+                        ArticleId = article.Id
                     }).ToList();
+        }
+
+        public async Task<bool> DeleteArticle(int id)
+        {
+            try
+            {
+                var article = _context.Article.FirstOrDefault(x => x.Id == id);
+                _context.Article.Remove(article);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+                throw;
+            }
         }
     }
 }

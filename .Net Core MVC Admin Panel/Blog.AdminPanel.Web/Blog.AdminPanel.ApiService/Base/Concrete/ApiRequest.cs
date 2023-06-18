@@ -68,5 +68,11 @@ namespace Blog.AdminPanel.ApiService.Base.Concrete
             }
             return null;
         }
+
+        public async Task<bool> DeleteAsync(string endpoint)
+        {
+            var response = await _client.DeleteAsync(endpoint);
+            return response.IsSuccessStatusCode;
+        }
     }
 }

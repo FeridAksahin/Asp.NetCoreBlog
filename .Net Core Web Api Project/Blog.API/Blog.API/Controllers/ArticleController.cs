@@ -39,5 +39,11 @@ namespace Blog.API.Controllers
         {
             return await _articleDal.GetAllAdminArticle(email);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<bool> DeleteArticleById(int id)
+        {
+            return await _articleDal.DeleteArticle(id);
+        }
     }
 }

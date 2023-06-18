@@ -13,5 +13,6 @@ namespace Blog.API.DataAccessLayer.Interface
         public Task<List<HomePageArticleDTO>> GetArticleForHomePage();
         public Task<ArticlePostDTO> GetArticlePost(int articleId);
         public Task<List<ArticleDTO>> GetAllAdminArticle(string email);
+        public Task<bool> DeleteArticle(int id);
     }
 }

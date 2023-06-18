@@ -46,5 +46,11 @@ namespace Blog.AdminPanel.Web.Controllers
             var article =await _articleService.GetAllArticle(User.FindFirstValue(ClaimTypes.Email));
             return View(article);
         }
+
+        [HttpPost]
+        public async Task<JsonResult> DeleteArticle(int id)
+        {
+            return Json(new { result = _articleService.DeleteArticle(id) });
+        }
     }
 }

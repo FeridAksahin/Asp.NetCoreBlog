@@ -13,5 +13,7 @@ namespace Blog.API.DataTransferObject
         public string Text { get; set; }
         public string UserMail { get; set; }
         public int CategoryId { get; set; }
+        public int? ArticleId { get; set; }
+
     }
 }

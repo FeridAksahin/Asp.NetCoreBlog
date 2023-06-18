@@ -1,4 +1,5 @@
 ﻿@using Blog.AdminPanel.ViewModel
+@using System.Text.RegularExpressions
 @model List<ArticleViewModel>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +27,25 @@
                     {
                         <tr>
                             <td style="text-align: center;">
-                                <button type="button" id="openModal" class="btn" data-toggle="modal" data-target="#popUp"@* data-text="@item.Text"*@>
+                                <div class="modal fade" id="popUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Article Text</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                @Html.Raw(@item.Text)
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" id="openModal" class="btn" data-toggle="modal" data-target="#popUp">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </td>
@@ -36,7 +55,7 @@
                             <td class="update_delete">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-warning" style="background-color: #393E46; color: white;">Update</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <button type="button" class="btn btn-danger" onclick="DeleteArticle(@item.ArticleId)">Delete</button>
                                 </div>
                             </td>
                         </tr>
@@ -48,25 +67,7 @@
 
 
 
-    <div class="modal fade" id="popUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...fsdfsdfsdfs
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 
 
@@ -79,13 +80,40 @@
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 <script>
+    function DeleteArticle(articleId) {
+
+
+        Swal.fire({
+            title: 'Do you want to delete this article?',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var deleteNotification;
+                var icon;
+                $.ajax({
+                    url: "/Article/DeleteArticle",
+                    data: { id: articleId },
+                    method: 'POST',
+                    success: function(data) {
+                        debugger;
+                        if (data.result.result == true) {
+                            deleteNotification = 'Deleted'
+                            icon = 'success'
+                        } else {
+                            icon = 'error'
+                            deleteNotification = 'Unexpected error occurred.'
+                        }
+                          Swal.fire(deleteNotification, '', icon);
+                    }
+                });
+            }
+        })
+
+
+
+    }
     $(document).ready(function() {
         $('#table').DataTable();
-
-        //$('.openModal').click(function() {
-        //    var articleText = $(this).data('text');
-        //    $('#popUp .modal-body').text(articleText);
-        //    $('#popUp').modal('show');
-        //});
     });
 </script>
