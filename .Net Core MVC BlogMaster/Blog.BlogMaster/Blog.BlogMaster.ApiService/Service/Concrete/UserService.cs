@@ -19,7 +19,7 @@ namespace Blog.BlogMaster.ApiService.Service.Concrete
 
         public async Task<AboutViewModel> GetAdminAbout(string username)
         {
-            return await _apiRequest.GetAsync<AboutViewModel>(username, "User/GetAbout");
+            return await _apiRequest.GetAsync<AboutViewModel>(username, "AdminFeature/GetAbout");
         }
     }
 }

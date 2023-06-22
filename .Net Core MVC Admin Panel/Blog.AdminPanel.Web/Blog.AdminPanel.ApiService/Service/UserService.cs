@@ -29,12 +29,12 @@ namespace Blog.AdminPanel.ApiService.Service
 
         public async Task<string> AddAbout(AboutViewModel aboutModel)
         {
-            return await _apiRequest.PostAsyncResponseJson(aboutModel, "User/AddAboutForAdmin");
+            return await _apiRequest.PostAsyncResponseJson(aboutModel, "AdminFeature/AddAboutForAdmin");
         }
 
         public async Task<string> UpdateAbout(AboutViewModel aboutModel)
         {
-            return await _apiRequest.PutAsync(aboutModel, "User/UpdateAboutForAdmin");
+            return await _apiRequest.PutAsync(aboutModel, "AdminFeature/UpdateAboutForAdmin");
         }
 
         public async Task<AboutViewModel> GetAbout(string userMail)
