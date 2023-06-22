@@ -1,4 +1,5 @@
-﻿using Blog.API.DataAccessLayer.Interface;
+﻿using Blog.API.Authentication;
+using Blog.API.DataAccessLayer.Interface;
 using Blog.API.DataTransferObject;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +12,24 @@ namespace Blog.API.Controllers
     {
         private readonly string _errorMessage = "An error occurred.";
         private readonly IUserDal _userDal;
-        public UserController(IUserDal userDal)
+        private readonly IConfiguration _configuration;
+        public UserController(IUserDal userDal, IConfiguration configuration)
         {
             _userDal = userDal;
+            _configuration = configuration;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetToken()
+        {
+            Token token = TokenHandler.CreateToken(_configuration);
+            return Ok(token);
+        }
+
+        [HttpGet("{email}/{password}")]
+        public bool Login(string email, string password)
+        {
+            return _userDal.Login(new UserDTO { Email = email, Password = password });
         }
 
         [HttpPost, ActionName("AddAdminUser")]
@@ -28,49 +44,7 @@ namespace Blog.API.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
-        }
-
-        [HttpGet("{email}/{password}")]
-        public bool Login(string email, string password)
-        {
-            return _userDal.Login(new UserDTO { Email = email, Password = password });
-        }
-
-        [HttpGet("{email}")]
-        public async Task<AboutDTO> GetAbout(string email)
-        {
-            return await _userDal.GetAbout(email);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddAboutForAdmin(AboutDTO aboutDto)
-        {
-            if (await _userDal.AddAdminAbout(aboutDto))
-            {
-                var response = new { status = "success", message = "The about text addition process has been successfully completed.", title = "Insert" };
-                return Ok(response);
-            }
-            else
-            {
-                var response = new { status = "error", message = _errorMessage, title = "Insert" };
-                return BadRequest(response);
-            }
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> UpdateAboutForAdmin(AboutDTO aboutDto)
-        {
-            if (await _userDal.UpdateAdminUserAbout(aboutDto))
-            {
-                var response = new { status = "success", message = "The about text update process has been successfully completed.", title = "Update" };
-                return Ok(response);
-            }
-            else
-            {
-                var response = new { status = "error", message = _errorMessage, title = "Update" };
-                return BadRequest(response);
-            }
-        }
+        } 
     }
 }
 
