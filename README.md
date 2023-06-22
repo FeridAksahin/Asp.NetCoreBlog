@@ -24,7 +24,6 @@ This project structure aims to separate responsibilities and provide a modular a
 <h2>Used</h2>
 <h3>Blog.Api (.Net Core Web Api)</h3>
 
-- [x] C#
 - [x] Mssql
 - [x] Entity Framework (Codefirst approach) 
 - [x] Restful Services
@@ -38,7 +37,6 @@ This project structure aims to separate responsibilities and provide a modular a
 
 <h3>Admin Panel (.Net Core Mvc)</h3>
 
-- [x] C#
 - [x] Inversion of Control (IoC)
 - [x] Layered Architecture
 - [x] Javascript & Html & Css & Bootstrap
@@ -50,7 +48,6 @@ This project structure aims to separate responsibilities and provide a modular a
 
 <h3>BlogMaster (End User - .Net Core Mvc)</h3>
 
-- [x] C#
 - [x] Inversion of Control (IoC)
 - [x] Layered Architecture
 - [x] Javascript & Html & Css & Bootstrap
