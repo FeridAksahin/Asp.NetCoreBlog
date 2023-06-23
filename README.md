@@ -30,7 +30,6 @@ This project structure aims to separate responsibilities and provide a modular a
 - [x] Linq-lambda queries
 - [x] Inversion of Control (IoC)
 - [x] Layered Architecture
-- [x] Javascript & Html & Css & Bootstrap
 - [x] Json Objects
 - [ ] Jwt Token (ASAP Incoming)
 - [ ] Repository Design Pattern (ASAP Incoming)
