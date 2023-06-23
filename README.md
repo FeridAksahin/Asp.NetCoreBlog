@@ -24,13 +24,13 @@ This project structure aims to separate responsibilities and provide a modular a
 <h2>Used</h2>
 <h3>Blog.Api (.Net Core Web Api)</h3>
 
-- [x] Mssql
-- [x] Entity Framework (Codefirst approach) 
 - [x] Restful Services
+- [x] Json Objects
+- [x] Layered Architecture
+- [x] Entity Framework (Codefirst approach) 
+- [x] Mssql
 - [x] Linq-lambda queries
 - [x] Inversion of Control (IoC)
-- [x] Layered Architecture
-- [x] Json Objects
 - [ ] Jwt Token (ASAP Incoming)
 - [ ] Repository Design Pattern (ASAP Incoming)
 
