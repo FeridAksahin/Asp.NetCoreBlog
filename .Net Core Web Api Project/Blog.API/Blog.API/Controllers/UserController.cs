@@ -1,6 +1,7 @@
 ﻿using Blog.API.Authentication;
 using Blog.API.DataAccessLayer.Interface;
 using Blog.API.DataTransferObject;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +11,6 @@ namespace Blog.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly string _errorMessage = "An error occurred.";
         private readonly IUserDal _userDal;
         private readonly IConfiguration _configuration;
         public UserController(IUserDal userDal, IConfiguration configuration)
@@ -20,16 +20,20 @@ namespace Blog.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetToken()
+        public Token GetToken()
         {
-            Token token = TokenHandler.CreateToken(_configuration);
-            return Ok(token);
+            return TokenHandler.CreateToken(_configuration);
+         
         }
-
+      
         [HttpGet("{email}/{password}")]
-        public bool Login(string email, string password)
+        public string Login(string email, string password)
         {
-            return _userDal.Login(new UserDTO { Email = email, Password = password });
+            if(_userDal.Login(new UserDTO { Email = email, Password = password }))
+            {
+                return GetToken().AccessToken;
+            }
+            return null; 
         }
 
         [HttpPost, ActionName("AddAdminUser")]
