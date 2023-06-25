@@ -18,7 +18,7 @@ namespace Blog.API.Authentication
             token.ExpirationTime = DateTime.Now.AddMinutes(Convert.ToInt16(configuration["Token:ExpirationTime"]));
             JwtSecurityToken jwtToken = new(
                 issuer: configuration["Token:Issuer"],
-                audience: configuration["Token.Audience"],
+                audience: configuration["Token:Audience"],
                 expires: token.ExpirationTime,
                 notBefore: DateTime.Now,
                 signingCredentials: credential
