@@ -1,5 +1,6 @@
 ﻿using Blog.API.DataAccessLayer.Interface;
 using Blog.API.DataTransferObject;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace Blog.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class ArticleController : ControllerBase
     {
         private readonly IArticleDal _articleDal;
@@ -23,12 +25,14 @@ namespace Blog.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<List<HomePageArticleDTO>> GetArticleInformationForHomePage()
         {
             return await _articleDal.GetArticleForHomePage();
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ArticlePostDTO> GetArticlePost(int id)
         {
             return await _articleDal.GetArticlePost(id);
