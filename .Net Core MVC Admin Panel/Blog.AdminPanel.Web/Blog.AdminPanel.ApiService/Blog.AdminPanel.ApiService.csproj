@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Blog.AdminPanel.Common\Blog.AdminPanel.Common.csproj" />
     <ProjectReference Include="..\Blog.AdminPanel.ViewModel\Blog.AdminPanel.ViewModel.csproj" />
   </ItemGroup>
 

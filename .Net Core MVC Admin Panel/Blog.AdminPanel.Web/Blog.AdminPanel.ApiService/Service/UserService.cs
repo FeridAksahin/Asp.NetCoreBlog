@@ -1,4 +1,5 @@
 ﻿using Blog.AdminPanel.ApiService.Base.Concrete;
+using Blog.AdminPanel.Common;
 using Blog.AdminPanel.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace Blog.AdminPanel.ApiService.Service
             return await _apiRequest.PostAsync<UserViewModel>(newAdmin, "User/AddAdminUser");
         }
 
-        public async Task<bool> AdminLogin(UserViewModel user)
+        public async Task<string> AdminLogin(UserViewModel user)
         {
             return await _apiRequest.GetAsync(user.Email,user.Password, "User/Login");
         }
@@ -39,7 +40,7 @@ namespace Blog.AdminPanel.ApiService.Service
 
         public async Task<AboutViewModel> GetAbout(string userMail)
         {
-            return await _apiRequest.GetAsync<AboutViewModel>(userMail, "User/GetAbout");
+            return await _apiRequest.GetAsync<AboutViewModel>(userMail, "AdminFeature/GetAbout");
         }
     }
 }

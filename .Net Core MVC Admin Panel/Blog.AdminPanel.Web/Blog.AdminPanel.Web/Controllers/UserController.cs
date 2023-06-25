@@ -12,9 +12,11 @@ namespace Blog.AdminPanel.Web.Controllers
     public class UserController : Controller
     {
         private readonly UserService _userService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserController(UserService userService)
+        public UserController(UserService userService, IHttpContextAccessor httpContextAccessor)
         {
+            _httpContextAccessor = httpContextAccessor;
             _userService = userService;
         }
 
@@ -36,10 +38,23 @@ namespace Blog.AdminPanel.Web.Controllers
                 {
                     return RedirectToAction("Index", "AdminHome");
                 }
-                else if(userViewModel.Action.Equals("Login", StringComparison.OrdinalIgnoreCase) && await _userService.AdminLogin(userViewModel))
+                else if(userViewModel.Action.Equals("Login", StringComparison.OrdinalIgnoreCase))
                 {
-                    var claim = new List<Claim>  
+                    var token = await _userService.AdminLogin(userViewModel);
 
+                    if(token == null) {
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ErrorPage", "404.html");
+                        return PhysicalFile(filePath, "text/html");
+                    }
+
+                    HttpContext httpContext = _httpContextAccessor.HttpContext;
+                    CookieOptions options = new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddDays(1)
+                    };
+                    httpContext.Response.Cookies.Append("jsonWebToken", token, options);
+
+                    var claim = new List<Claim>  
                     {
                         new Claim(ClaimTypes.Email, userViewModel.Email)
                     };

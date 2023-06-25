@@ -1,5 +1,6 @@
 ﻿using Blog.API.DataAccessLayer.Interface;
 using Blog.API.DataTransferObject;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace Blog.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class AdminFeatureController : ControllerBase
     {
         private readonly string _errorMessage = "An error occurred.";
@@ -17,6 +19,7 @@ namespace Blog.API.Controllers
         }
 
         [HttpGet("{email}")]
+        [AllowAnonymous]
         public async Task<AboutDTO> GetAbout(string email)
         {
             return await _userDal.GetAbout(email);
