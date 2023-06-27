@@ -5,11 +5,13 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using ProgrammersBlog.Mvc.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(option=>option.Filters.Add<ExceptionFilter>());
+
 builder.Services.AddHttpClient<ApiRequest>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ApiAddress"]);
