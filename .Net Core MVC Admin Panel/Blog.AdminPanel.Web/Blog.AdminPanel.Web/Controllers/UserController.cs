@@ -34,17 +34,17 @@ namespace Blog.AdminPanel.Web.Controllers
             TempData["Login"] = true;
             if (ModelState.IsValid)
             {
-                if(userViewModel.Action.Equals("Register", StringComparison.OrdinalIgnoreCase) && await _userService.AddNewAdmin(userViewModel))
+                if (userViewModel.Action.Equals("Register", StringComparison.OrdinalIgnoreCase) && await _userService.AddNewAdmin(userViewModel))
                 {
                     return RedirectToAction("Index", "AdminHome");
                 }
-                else if(userViewModel.Action.Equals("Login", StringComparison.OrdinalIgnoreCase))
+                else if (userViewModel.Action.Equals("Login", StringComparison.OrdinalIgnoreCase))
                 {
                     var token = await _userService.AdminLogin(userViewModel);
 
-                    if(token == null) {
-                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ErrorPage", "404.html");
-                        return PhysicalFile(filePath, "text/html");
+                    if (string.IsNullOrEmpty(token))
+                    {
+                        throw new ArgumentNullException();
                     }
 
                     HttpContext httpContext = _httpContextAccessor.HttpContext;
@@ -54,7 +54,7 @@ namespace Blog.AdminPanel.Web.Controllers
                     };
                     httpContext.Response.Cookies.Append("jsonWebToken", token, options);
 
-                    var claim = new List<Claim>  
+                    var claim = new List<Claim>
                     {
                         new Claim(ClaimTypes.Email, userViewModel.Email)
                     };
