@@ -8,13 +8,19 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: black;
+        }
+
+        .btn-submit {
+            background-color: #393E46;
+            color: #fff;
         }
 
         .inner-container {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
         }
 
         .ck-editor__editable {
@@ -40,25 +46,28 @@
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Sub Header</span>
+                    <span class="input-group-text" id="basic-addon2">Sub Header</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Username" id="subHeader" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" aria-label="Username" id="subHeader" aria-describedby="basic-addon2">
             </div>
             <div class="input-group">
                 <textarea class="form-control" id="articleText" placeholder="Article"></textarea>
             </div>
 
-            <select class="btn btn-info dropdown-toggle" id="category">
-                @foreach (string category in Enum.GetNames(typeof(Category)))
-                {
-                    <option selected disabled hidden>Category</option>
-                    <option value="@((int)Enum.Parse(typeof(Category), category.ToString()))">@category.ToString()</option>
-                }
-            </select>
+            <div class="form-group mt-3">
+                <select class="form-control" id="category">
+                    <option selected disabled hidden>Choose Category</option>
+                    @foreach (string category in Enum.GetNames(typeof(Category)))
+                    {
+                        <option value="@((int)Enum.Parse(typeof(Category), category.ToString()))">@category.ToString()</option>
+                    }
+                </select>
+            </div>
 
-            <button type="submit" class="btn btn-info" onclick="SendArticle()">Add</button>
+            <button type="submit" class="btn btn-submit mt-3" onclick="SendArticle()">Add</button>
         </div>
     </div>
+
 
 </body>
 </html>
