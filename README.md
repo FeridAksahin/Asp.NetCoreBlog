@@ -44,6 +44,7 @@ This project structure aims to separate responsibilities and provide a modular a
 - [x] Cookie-based Authentication
 - [x] SweetAlert2 
 - [x] Json Objects
+- [x] Asynchronous JavaScript and XML Requests
 
 <h3>BlogMaster (End User - .Net Core Mvc)</h3>
 
