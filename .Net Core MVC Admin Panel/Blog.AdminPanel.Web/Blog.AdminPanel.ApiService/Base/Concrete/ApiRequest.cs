@@ -80,8 +80,10 @@ namespace Blog.AdminPanel.ApiService.Base.Concrete
 
         public async Task<bool> DeleteAsync(string endpoint)
         {
-            var response = await _client.DeleteAsync(endpoint);
-            return response.IsSuccessStatusCode;
+            _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {_httpContextAccessor.HttpContext.Request.Cookies["jsonWebToken"]}");
+            var content = await _client.DeleteAsync(endpoint);
+            var response = await content.Content.ReadAsStringAsync();
+            return Convert.ToBoolean(response);
         }
     }
 }
