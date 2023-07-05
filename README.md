@@ -32,7 +32,6 @@ This project structure aims to separate responsibilities and provide a modular a
 - [x] Linq-lambda queries
 - [x] Inversion of Control (IoC)
 - [x] Jwt Token
-- [ ] Repository Design Pattern (ASAP Incoming)
 
 <h3>Admin Panel (.Net Core Mvc)</h3>
 
